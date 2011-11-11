@@ -6,8 +6,8 @@ This is a generic search system developed to help determine where certain suppor
 
 
 
-Planned Features
-	* Authentication and User Identification using LDAP
-	* Comments for Assignees
-	* The Ability to modify descriptions (along with track modifications)
-	* Precaching for the kth most commonly searched phrases
+Planned Features:
+* Authentication and User Identification using LDAP
+* Comments for Assignees
+* The Ability to modify descriptions (along with track modifications)
+* Precaching for the kth most commonly searched phrases
