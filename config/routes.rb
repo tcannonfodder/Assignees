@@ -1,4 +1,10 @@
 Assignees::Application.routes.draw do
+
+
+root :to => 'Assignees#index'
+resources :assignees
+resources :tags
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
