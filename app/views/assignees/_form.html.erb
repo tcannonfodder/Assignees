@@ -1,0 +1,7 @@
+<%= form_for @assignee do |f| %>
+	<%= f.label :assignee  %>
+	<%= f.text_field :assignee , :size => 40 %><br/>
+	<%= f.label :description %>
+	<%= f.text_area :description,  :cols =>40, :rows => 3 %> <br/>
+	<%= f.submit %>
+<% end %>

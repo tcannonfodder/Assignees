@@ -1,5 +1,6 @@
 Assignees::Application.routes.draw do
 
+get "assignees/index"
 
 root :to => 'Assignees#index'
 resources :assignees

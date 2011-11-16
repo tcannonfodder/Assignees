@@ -14,9 +14,11 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
+
 end
 
 gem 'jquery-rails'
+gem 'acts-as-taggable-on', '~>2.1.0'
 
 group :test, :development do
 	gem 'turn', '<0.8.3'

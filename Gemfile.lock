@@ -29,6 +29,8 @@ GEM
       activesupport (= 3.1.1)
     activesupport (3.1.1)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.1.1)
+      rails
     addressable (2.2.6)
     ansi (1.4.1)
     arel (2.2.1)
@@ -154,6 +156,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 2.1.0)
   capybara
   coffee-rails (~> 3.1.1)
   growl_notify

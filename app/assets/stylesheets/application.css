@@ -5,3 +5,24 @@
  *= require_self
  *= require_tree . 
 */
+
+#flash_notice{
+	background: green;
+	border: 1px solid darken(green, 20%);
+	text-align: center;
+	padding: 5px;
+	color: white;
+}
+
+#flash_error{
+	background: red;
+	border: 1px solid darken(red, 20%);
+	text-align: center;
+	padding: 5px;
+	color: white;
+}
+
+label {
+	margin-top : 20px;
+	display: block;
+}

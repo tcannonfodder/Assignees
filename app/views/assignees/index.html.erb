@@ -1,1 +1,8 @@
-<h1>Blah!</h1>
+<h1>Assignees</h1>
+<%= render 'form' %>
+	<dl>
+	<% for assignee in @assignees %>
+		<dt id="assignee_<%= assignee.id %>"><%= assignee.assignee %> | <a href='<%= edit_assignee_path(assignee) %>'>Edit</a> | <%= link_to 'Delete', assignee, :method=>'delete'%></dt>
+			<dd><%= assignee.description %></dt>
+	<% end %>
+	</dl>
