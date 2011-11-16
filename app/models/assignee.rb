@@ -2,5 +2,7 @@ class Assignee < ActiveRecord::Base
 	validates :assignee, presence: true
 	validates :description, presence: true
 
-	acts_as_taggable
+	# Alias for <tt>acts_as_taggable_on :tags</tt>:
+  acts_as_taggable
+  acts_as_taggable_on :tasks
 end
