@@ -3,5 +3,7 @@
 	<%= f.text_field :assignee , :size => 40 %><br/>
 	<%= f.label :description %>
 	<%= f.text_area :description,  :cols =>40, :rows => 3 %> <br/>
+	<%= f.label :tasks %>
+	<%= f.check_box :task_list, { :multiple => true }, 'Tasks', nil %><br/>
 	<%= f.submit %>
 <% end %>

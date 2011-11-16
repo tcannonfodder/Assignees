@@ -3,6 +3,13 @@
 	<dl>
 	<% for assignee in @assignees %>
 		<dt id="assignee_<%= assignee.id %>"><%= assignee.assignee %> | <a href='<%= edit_assignee_path(assignee) %>'>Edit</a> | <%= link_to 'Delete', assignee, :method=>'delete'%></dt>
-			<dd><%= assignee.description %></dt>
+			<dd><%= assignee.description %> <br/> <%= assignee.task_list %>
+			<h2>Tasks</h2>
+				<ul>
+					<% for task in assignee.tasks %>
+						<li><%= task %></li>
+					<% end %>
+				</ul>
+			</dd>
 	<% end %>
 	</dl>

@@ -1,4 +1,8 @@
 class AssigneesController < ApplicationController
+	def show
+		$assignee = Assignee.find params[:id] 
+	end
+
 	def index
 		@assignees = Assignee.all
 		@assignee = Assignee.new
