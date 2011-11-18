@@ -2,7 +2,15 @@ require 'spec_helper'
 
 describe "Assignees" do
 	before do
-		@assignee = Assignee.create(:assignee => "Test Assignee" , :description => "A Very Simple Description", :task_list => "Sample Task, Other Tasks")
+		@assignee = Assignee.new #Create a New Assignee
+		@assignee.assignee = "Test Assignee"
+		@assignee.description = "A Very Simple Description"
+		@assignee.save()
+
+		@task = Task.new #Create a new task for the assignee
+		@task.task = "Sample Task"
+		@task.assignee = @assignee
+		@task.save()
 	end
 
   describe "GET /assignees" do
@@ -10,17 +18,6 @@ describe "Assignees" do
 	      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
 	      visit assignees_path
 	      page.should have_content "Test Assignee"
-	    end
-
-
-	    it "displays some Tasks" do
-	      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-	      visit assignees_path
-
-	      page.should have_content "Sample Task"
-
-	      #save_and_open_page
-
 	    end
 
 	    it "creates a new assignee" do
@@ -71,25 +68,6 @@ describe "Assignees" do
 	    	page.should have_content 'A Very Simple Description' 
 	    	page.should have_content 'Sample Task'
 	    end
-
-	    it "searches for An Assignee based on a Tag" do
-	    	visit assignees_search_path
-
-	    	fill_in 'search', :with => 'Other Tasks'
-
-	    	click_button 'Search Assignee'
-
-	    	current_path.should == assignees_search_path
-	    
-	    	# Look for:
-	    		# The Description.
-	    		# the other Tags
-	    		# The Title
-
-	    	page.should have_content 'Test Assignee'
-	    	page.should have_content 'A Very Simple Description' 
-	    	page.should have_content 'Sample Task'
-	    end
 	end
 
 	describe "PUT /assignees" do
@@ -108,23 +86,6 @@ describe "Assignees" do
 
 			page.should have_content 'Assignee has been updated'
 			#save_and_open_page
-		end
-
-		it "edits an assignee's task" do
-			visit assignees_path
-			click_link 'Edit'
-
-			current_path.should == edit_assignee_path(@assignee)
-
-			find_field('Tasks').value.should have_content 'Sample Task'
-
-			fill_in 'Tasks', :with => 'Sample Task, More Tasks'
-
-			click_button 'Update Assignee'
-
-			current_path.should == assignees_path
-
-			page.should have_content 'Assignee has been updated'
 		end
 
 		it 'should not update an empty assignee' do
