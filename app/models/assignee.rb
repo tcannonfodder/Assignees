@@ -2,9 +2,8 @@ class Assignee < ActiveRecord::Base
 	validates :assignee, presence: true
 	validates :description, presence: true
 
-	# Model definiton for acts_as_taggable_on gem
-		acts_as_taggable
-		acts_as_taggable_on :tasks
+	# Model Definiton for The Tasks (has many Tasks)
+	
 
 	# Model definiton for scoped_search gem
 		scoped_search :on => [:assignee, :description]

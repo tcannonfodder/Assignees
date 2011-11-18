@@ -18,7 +18,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'scoped_search'
 
 group :test, :development do
