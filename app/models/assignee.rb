@@ -3,7 +3,7 @@ class Assignee < ActiveRecord::Base
 	validates :description, presence: true
 
 	# Model Definiton for The Tasks (has many Tasks)
-	
+	has_many :tasks
 
 	# Model definiton for scoped_search gem
 		scoped_search :on => [:assignee, :description]
