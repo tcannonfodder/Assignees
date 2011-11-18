@@ -1,9 +1,12 @@
 Assignees::Application.routes.draw do
 
 get "assignees/index"
-
 get "assignees/search"
+
 root :to => 'Assignees#index'
+
+match 'search' => 'Assignees#search'
+
 resources :assignees
 resources :tags
 

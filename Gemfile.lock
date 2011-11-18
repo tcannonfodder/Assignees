@@ -128,6 +128,8 @@ GEM
       sass (>= 3.1.4)
       sprockets (~> 2.0.0)
       tilt (~> 1.3.2)
+    scoped_search (2.3.6)
+      activerecord (>= 2.1.0)
     selenium-webdriver (2.10.0)
       childprocess (>= 0.2.1)
       ffi (= 1.0.9)
@@ -166,6 +168,7 @@ DEPENDENCIES
   rails (= 3.1.1)
   rspec-rails
   sass-rails (~> 3.1.4)
+  scoped_search
   sqlite3
   turn (< 0.8.3)
   uglifier (>= 1.0.3)

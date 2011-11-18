@@ -1,0 +1,21 @@
+<dl class = 'assignees' >
+	<% for assignee in @assignees %>
+		<dt id="assignee_<%= assignee.id %>">
+			<span class='assignee_name'><%= assignee.assignee %></span>
+			<menu>
+				<li class='edit'><a href='<%= edit_assignee_path(assignee) %>'>Edit</a></li>
+				<li class='delete'><%= link_to 'Delete', assignee, :method=>'delete', :class=>'delete'%></li>
+			</menu>
+		</dt>
+			<dd><%= assignee.description %> <br/>
+			<% if assignee.tasks.size != 0 %>
+				<h2>Tasks</h2>
+					<ul>
+						<% for task in assignee.tasks %>
+							<li><%= task %></li>
+						<% end %>
+					</ul>
+			<% end %>
+			</dd>
+	<% end %>
+	</dl>

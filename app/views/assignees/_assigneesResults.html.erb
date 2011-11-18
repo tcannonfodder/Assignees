@@ -1,0 +1,17 @@
+<dl class = 'assignees' >
+	<% for assignee in @assignees %>
+		<dt id="assignee_<%= assignee.id %>">
+			<span class='assignee_name'><%= assignee.assignee %></span>
+		</dt>
+			<dd><%= assignee.description %> <br/>
+			<% if assignee.tasks.size != 0 %>
+				<h2>Tasks</h2>
+					<ul>
+						<% for task in assignee.tasks %>
+							<li><%= task %></li>
+						<% end %>
+					</ul>
+			<% end %>
+			</dd>
+	<% end %>
+	</dl>

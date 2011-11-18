@@ -1,6 +1,5 @@
 class AssigneesController < ApplicationController
 
-
 	def show
 		@assignee = Assignee.find params[:id] 
 	end
@@ -42,5 +41,9 @@ class AssigneesController < ApplicationController
 		
 		flash[:error] = "Assignee has been deleted"
 		redirect_to :back
+	end
+
+	def search
+		@assignees = Assignee.search(params[:search])
 	end
 end

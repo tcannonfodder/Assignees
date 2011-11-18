@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Assignees" do
 	before do
-		@assignee = Assignee.create(:assignee => "Test Assignee" , :description => "Simple Description", :task_list => "Sample Task, Other Tasks")
+		@assignee = Assignee.create(:assignee => "Test Assignee" , :description => "A Very Simple Description", :task_list => "Sample Task, Other Tasks")
 	end
 
   describe "GET /assignees" do
@@ -37,7 +37,58 @@ describe "Assignees" do
 	    end
 
 	    it "searches for An Assignee based on Title" do
-	    	visit search_assignee_path
+	    	visit assignees_search_path
+
+	    	fill_in 'search', :with => 'Test Assignee'
+
+	    	click_button 'Search Assignee'
+
+	    	current_path.should == assignees_search_path
+	    
+	    	# Look for:
+	    		# the Description (We are not looking for the title, because it will be a false positive in the field perhaps).
+	    		# One of the tags
+
+	    	page.should have_content 'A Very Simple Description' 
+	    	page.should have_content 'Sample Task'
+	    end
+
+	    it "searches for An Assignee based on a snippet of the Description" do
+	    	visit assignees_search_path
+
+	    	fill_in 'search', :with => 'A Very Simple'
+
+	    	click_button 'Search Assignee'
+
+	    	current_path.should == assignees_search_path
+	    
+	    	# Look for:
+	    		# The Description (We are not looking for just the snippet, because it will be a false positive in the field perhaps).
+	    		# One of the tags
+	    		# The Title
+
+	    	page.should have_content 'Test Assignee'
+	    	page.should have_content 'A Very Simple Description' 
+	    	page.should have_content 'Sample Task'
+	    end
+
+	    it "searches for An Assignee based on a Tag" do
+	    	visit assignees_search_path
+
+	    	fill_in 'search', :with => 'Other Tasks'
+
+	    	click_button 'Search Assignee'
+
+	    	current_path.should == assignees_search_path
+	    
+	    	# Look for:
+	    		# The Description.
+	    		# the other Tags
+	    		# The Title
+
+	    	page.should have_content 'Test Assignee'
+	    	page.should have_content 'A Very Simple Description' 
+	    	page.should have_content 'Sample Task'
 	    end
 	end
 
