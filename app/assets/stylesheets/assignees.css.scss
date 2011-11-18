@@ -1,3 +1,67 @@
 // Place all the styles related to the Assignees controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$orange : #f66630;
+
+
+
+form{
+	margin-left: 20px;
+	padding: 0px;
+}
+
+	label {
+		display: block;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	input[type='submit']{
+		margin-top: 10px;
+	}
+
+.assignees{
+	margin-left: 20px;
+}
+	.assignee_name {
+		font-size: 20px;
+		font-family: sans-serif;
+		font-weight: bold;
+		margin-right: 0px;
+	}
+
+
+	.assignees dt menu{
+		margin: 0px;
+		padding-left: 5px;
+		list-style: none;
+		display: inline;
+	}
+
+		.assignees dt menu li{
+			display: inline;
+			font-size: 15px;
+			border-right: 1px dotted black;
+			padding-right: 5px;
+		}
+
+			.assignees dt menu li a.delete{
+				color: darken(red, 20%);
+			}
+
+			.assignees dt menu li:last-child{
+				border-right: none;
+			}
+
+
+	.assignees dd{
+		margin-top: 5px;
+	}
+
+	.assignees dd h2{
+		font-size: 20px;
+		margin-top: 10px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}

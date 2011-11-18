@@ -18,7 +18,7 @@ describe "Assignees" do
 	      visit assignees_path
 
 	      page.should have_content "Sample Task"
-	      
+
 	      #save_and_open_page
 
 	    end
@@ -34,6 +34,10 @@ describe "Assignees" do
 	    	page.should have_content 'Another Assignee'
 
 	    	# save_and_open_page 
+	    end
+
+	    it "searches for An Assignee based on Title" do
+	    	visit search_assignee_path
 	    end
 	end
 
@@ -61,7 +65,7 @@ describe "Assignees" do
 
 			current_path.should == edit_assignee_path(@assignee)
 
-			find_field('Tasks').value.should = 'Sample Task'
+			find_field('Tasks').value.should have_content 'Sample Task'
 
 			fill_in 'Tasks', :with => 'Sample Task, More Tasks'
 

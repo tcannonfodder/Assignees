@@ -1,9 +1,16 @@
-<h1>Assignees</h1>
-<%= render 'form' %>
-	<dl>
+<h2>Quick Entry</h2>
+	<%= render 'form' %>
+<h2>Current Assignees</h2>
+	<dl class = 'assignees' >
 	<% for assignee in @assignees %>
-		<dt id="assignee_<%= assignee.id %>"><%= assignee.assignee %> | <a href='<%= edit_assignee_path(assignee) %>'>Edit</a> | <%= link_to 'Delete', assignee, :method=>'delete'%></dt>
-			<dd><%= assignee.description %> <br/> <%= assignee.task_list %>
+		<dt id="assignee_<%= assignee.id %>">
+			<span class='assignee_name'><%= assignee.assignee %></span>
+			<menu>
+				<li class='edit'><a href='<%= edit_assignee_path(assignee) %>'>Edit</a></li>
+				<li class='delete'><%= link_to 'Delete', assignee, :method=>'delete', :class=>'delete'%></li>
+			</menu>
+		</dt>
+			<dd><%= assignee.description %> <br/>
 			<h2>Tasks</h2>
 				<ul>
 					<% for task in assignee.tasks %>

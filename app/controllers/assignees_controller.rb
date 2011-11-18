@@ -1,20 +1,25 @@
 class AssigneesController < ApplicationController
+
+
 	def show
-		$assignee = Assignee.find params[:id] 
+		@assignee = Assignee.find params[:id] 
 	end
 
 	def index
+		@Title = "Assignees List"
 		@assignees = Assignee.all
 		@assignee = Assignee.new
 	end
 
 	def create
+		@Title = "New Assignee"
 		Assignee.create params[:assignee]
-
-		redirect_to :back, :notice => "Assignee has been created"
+		flash[:notice] = "Assignee has been created"
+		redirect_to :back
 	end
 
 	def edit
+		@Title = "Edit Assignee"
 		@assignee = Assignee.find params[:id] #find the Assignee currently being looked for
 	end
 
@@ -22,16 +27,20 @@ class AssigneesController < ApplicationController
 		assignee = Assignee.find params[:id] #find the Assignee currently being looked for
 
 		if assignee.update_attributes params[:assignee]
-			# the update was successful, redirect to the main page and inform the user 
-			redirect_to assignees_path, :notice =>"Assignee has been updated"
+			# the update was successful, redirect to the main page and inform the user
+			flash[:notice] = "Assignee has been updated"
+			redirect_to assignees_path
 		else
 			# the update was not successful, rediret back to the editing page
-			redirect_to :back, :notice => "There was an error updating the Assignee"
+			flash[:error] = "There was an error updating the Assignee"
+			redirect_to :back 
 		end
 	end
 
 	def destroy
 		Assignee.destroy params[:id]
-		redirect_to :back, :notice => "Assignee has been deleted"
+		
+		flash[:error] = "Assignee has been deleted"
+		redirect_to :back
 	end
 end

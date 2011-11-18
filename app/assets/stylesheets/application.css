@@ -6,9 +6,28 @@
  *= require_tree . 
 */
 
+body{
+	font-family: sans-serif;
+	padding:0px;
+	margin: 0px;
+}
+
+h1{
+	background: #f66630;
+	color: white;
+	margin: 0px;
+	padding: 5px;
+
+}
+
+h2{
+	color: #f66630;
+	margin-left: 10px;
+}
+
 #flash_notice{
 	background: green;
-	border: 1px solid darken(green, 20%);
+	border: 1px solid green;
 	text-align: center;
 	padding: 5px;
 	color: white;
@@ -16,13 +35,8 @@
 
 #flash_error{
 	background: red;
-	border: 1px solid darken(red, 20%);
+	border: 1px solid red;
 	text-align: center;
 	padding: 5px;
 	color: white;
-}
-
-label {
-	margin-top : 20px;
-	display: block;
 }
