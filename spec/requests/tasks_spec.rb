@@ -24,10 +24,10 @@ describe "Tasks" do
       #save_and_open_page
     end
 
-    it "searches for An Assignee based on a Tag" do
+    it "searches for an Assignee based on a Tag" do
     	visit assignees_search_path
 
-    	fill_in 'search', :with => 'Other Tasks'
+    	fill_in 'search', :with => 'Sample Task'
 
     	click_button 'Search Assignee'
 
@@ -37,6 +37,8 @@ describe "Tasks" do
     		# The Description.
     		# the other Tags
     		# The Title
+
+    	# save_and_open_page
 
     	page.should have_content 'Test Assignee'
     	page.should have_content 'A Very Simple Description' 
@@ -51,9 +53,9 @@ describe "Tasks" do
 
 		current_path.should == edit_assignee_path(@assignee)
 
-		find_field('Tasks').value.should have_content 'Sample Task'
+		find_field('assignee[tasks_attributes][0][task]').value.should have_content 'Sample Task'
 
-		fill_in 'Tasks', :with => 'Sample Task, More Tasks'
+		fill_in 'assignee[tasks_attributes][0][task]', :with => 'Sample Task, More Tasks'
 
 		click_button 'Update Assignee'
 

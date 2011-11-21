@@ -24,7 +24,7 @@ describe "Assignees" do
 	    	visit assignees_path
 	    	fill_in 'Assignee', :with => 'Another Assignee'
 	    	fill_in 'Description', :with => 'Some more content'
-	    	fill_in 'Tasks', :with => 'Sample Task'
+	    	fill_in 'assignee[tasks_attributes][0][task]', :with => 'Sample Task'
 	    	
 	    	click_button 'Create Assignee'
 	    	current_path.should == assignees_path

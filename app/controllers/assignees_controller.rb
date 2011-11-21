@@ -8,15 +8,14 @@ class AssigneesController < ApplicationController
 		@Title = "Assignees List"
 		@assignees = Assignee.all
 		@assignee = Assignee.new
+		3.times{
+			@assignee.tasks.build
+		}
 	end
 
 	def create
 		@Title = "New Assignee"
-		@assignee = Assignee.create params[:assignee]
-		3.times do
-			task = @assignee.tasks.build
-		end
-
+		Assignee.create params[:assignee]
 		flash[:notice] = "Assignee has been created"
 		redirect_to :back
 	end

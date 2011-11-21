@@ -1,7 +1,5 @@
-<p class ="fields">
-<%= f.label :task %>
-<%= f.text_field :task %>
+<div class ="fields">
+<%= f.text_field :task, :class => "task" %>
 <%= f.hidden_field :_destroy %>
 <%= link_to_function "remove", "remove_fields(this)" %>
-
-</p>
+</div>

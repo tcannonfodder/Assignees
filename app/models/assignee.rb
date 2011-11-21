@@ -15,12 +15,14 @@ class Assignee < ActiveRecord::Base
   	if search # Only run the queries if we're given a search term
 	  	# The hash of all items that were successfully searched for using the scope search
 	  		assigneesScoped = search_for(search) 
-	  	# The hash of all items retrieved by a tag search
+	  	# The hash of all items retrieved by a Task Search
+	  		tasksSearch = Task.search(search)
 	  		#assigneesTagged = tagged_with(search.split(','), :any => true)
-	  		results = assigneesScoped #+ assigneesTagged
+
+	  		results = assigneesScoped + tasksSearch #+ assigneesTagged
 
 	  		if results.size > 0 #If we returned some results from the search, then set those as the current result and return them
-	  			return results
+	  			return results.uniq
 	  		end
 	end
 
