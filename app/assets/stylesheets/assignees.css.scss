@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $orange : #f66630;
-$edit : #522D80;
+$link : #522D80;
+$edit : #465a13;
 
 h3{
 	font-size: 20px;
@@ -20,6 +21,8 @@ form{
 }
 
 	label {
+
+		font-weight:bold;
 		display: block;
 		margin-top: 5px;
 		margin-bottom: 5px;
@@ -29,49 +32,83 @@ form{
 		margin-top: 10px;
 	}
 
+	textarea{
+		font-family: sans-serif;
+	}
+
 
 form div.tasks div.fields{
 	margin-bottom:10px;
 }
 
 
-.assignees{
-	margin-left: 40px;
-}
-	.assignee_name {
-		font-size: 20px;
-		font-family: sans-serif;
-		font-weight: bold;
-		margin-right: 0px;
-	}
-
-
-	.assignees dt menu{
+menu.assignee {
 		margin: 0px;
-		padding-left: 5px;
+		padding-left: 0px;
 		list-style: none;
-		display: inline;
+
 	}
 
-		.assignees dt menu li{
+		menu.assignee  li{
 			display: inline;
 			font-size: 15px;
 			border-right: 1px dotted black;
 			padding-right: 5px;
 		}
-			.assignees dt menu li a.edit{
+			menu.assignee  li a.link{
+				color: $link;
+			}
+			menu.assignee  li a.edit{
 				color: $edit;
 			}
 
-			.assignees dt menu li a.delete{
+			menu.assignee li a.delete{
 				color: darken(red, 20%);
 			}
 
-			.assignees dt menu li:last-child{
+			menu.assignee li:last-child{
 				border-right: none;
 			}
 
+.assignee_name {
+	font-size: 20px;
+	font-family: sans-serif;
+	font-weight: bold;
+	margin-right: 0px;
+}
 
+.assigne_description{
+
+	margin-left: 20px;
+}
+
+.assignees{
+	margin-left: 40px;
+}
 	.assignees dd{
+		margin-left: 20px;
 		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.assignees dd ul{
+		padding-left:30px;
+	}
+
+
+/*The details Styling	*/
+.details{
+	margin-top:5px;
+	margin-left:40px;
+}
+
+	.details .title{
+		color:black;
+	}
+
+	.details ul{
+		padding:0px;
+		margin:0px;
+		padding-left:30px;
+
 	}

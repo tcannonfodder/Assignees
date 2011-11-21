@@ -1,7 +1,13 @@
 class AssigneesController < ApplicationController
 
 	def show
-		@assignee = Assignee.find params[:id] 
+		begin
+			@Title = "Assignee Overview"
+			@assignee = Assignee.find params[:id] 
+		rescue
+			redirect_to :root
+		end
+
 	end
 
 	def index
@@ -22,8 +28,12 @@ class AssigneesController < ApplicationController
 	end
 
 	def edit
-		@Title = "Edit Assignee"
-		@assignee = Assignee.find params[:id] #find the Assignee currently being looked for
+		begin
+			@Title = "Edit Assignee"
+			@assignee = Assignee.find params[:id] #find the Assignee currently being looked for
+		rescue
+			redirect_to :root
+		end
 	end
 
 	def update

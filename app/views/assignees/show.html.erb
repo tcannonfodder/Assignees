@@ -1,0 +1,9 @@
+<h2>Assignee Overview</h2>
+<div class = "details">
+	<span class='assignee_name'><%= @assignee.assignee %></span>
+		<%= render 'menu', :f=>@assignee %>
+		<p class='assignee_description'><%= @assignee.description%></p>
+		<% if @assignee.tasks.size != 0 %>
+			<%= render 'tasks_render', :f=>@assignee %>
+		<% end %>
+</div>

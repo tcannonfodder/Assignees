@@ -47,6 +47,10 @@ header{
 		display: inline;
 		margin: 0px;
 		padding:0px;
+		margin-right:10px;
+
+		position:absolute;
+		right:0px;
 	}
 	header menu ul{
 		font-size: 25px;
@@ -64,6 +68,8 @@ header{
 		}
 
 		header menu ul li:last-child{
+			margin:0px;
+			padding:0px;
 			display:inline;
 			border-right: none;
 		}

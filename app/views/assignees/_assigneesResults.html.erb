@@ -6,12 +6,7 @@
 		</dt>
 			<dd><%= assignee.description %> <br/>
 			<% if assignee.tasks.size != 0 %>
-				<h2>Tasks</h2>
-					<ul>
-						<% for task in assignee.tasks %>
-							<li><%= task.task %></li>
-						<% end %>
-					</ul>
+				<%= render 'tasks_render', :f=>assignee %>
 			<% end %>
 			</dd>
 	<% end %>

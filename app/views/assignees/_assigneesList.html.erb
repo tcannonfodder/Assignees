@@ -3,19 +3,13 @@
 	<% for assignee in @assignees %>
 		<dt id="assignee_<%= assignee.id %>">
 			<span class='assignee_name'><%= assignee.assignee %></span>
-			<menu>
-				<li class='edit'><a class = 'edit' href='<%= edit_assignee_path(assignee) %>'>Edit</a></li>
-				<li class='delete'><%= link_to 'Delete', assignee, :method=>'delete', :class=>'delete'%></li>
-			</menu>
+			<% if(assignee.id != nil) %>
+				<%= render 'menu', :f=>assignee %>
+			<% end %>
 		</dt>
 			<dd><%= assignee.description %> <br/>
 			<% if assignee.tasks.size != 0 %>
-				<h3>Tasks</h3>
-					<ul>
-						<% for task in assignee.tasks %>
-							<li><%= task.task %></li>
-						<% end %>
-					</ul>
+				<%= render 'tasks_render', :f=>assignee %>
 			<% end %>
 			</dd>
 	<% end %>

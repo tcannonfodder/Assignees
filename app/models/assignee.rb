@@ -12,7 +12,7 @@ class Assignee < ActiveRecord::Base
 		scoped_search :on => [:assignee, :description]
 
   def self.search(search)
-  	if search # Only run the queries if we're given a search term
+  	if search && !search.empty? # Only run the queries if we're given a search term
 	  	# The hash of all items that were successfully searched for using the scope search
 	  		assigneesScoped = search_for(search) 
 	  	# The hash of all items retrieved by a Task Search
