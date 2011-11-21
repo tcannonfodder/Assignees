@@ -3,5 +3,9 @@
 	<%= f.text_field :assignee , :size => 40 %><br/>
 	<%= f.label :description %>
 	<%= f.text_area :description,  :cols =>40, :rows => 3 %> <br/>
+	<%= f.fields_for :tasks do |builder| %>
+		<%= render 'task_fields', :f => builder %>
+	<% end %>
+	<%= link_to_add_fields "Add Task", f, :tasks %>
 	<%= f.submit %>
 <% end %>

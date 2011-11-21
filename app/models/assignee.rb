@@ -3,7 +3,10 @@ class Assignee < ActiveRecord::Base
 	validates :description, presence: true
 
 	# Model Definiton for The Tasks (has many Tasks)
-	has_many :tasks
+	has_many :tasks, :dependent => :destroy
+
+	# Allow us to create the subforms in the Assignees page
+	accepts_nested_attributes_for :tasks, :reject_if => lambda { |a| a[:task].blank?}, :allow_destroy => true
 
 	# Model definiton for scoped_search gem
 		scoped_search :on => [:assignee, :description]
