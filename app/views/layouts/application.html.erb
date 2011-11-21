@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1><a href="<%= root_path %>">Assignee Lookup</a>: <%= @Title %> </h1>
+<header>
+	<a href="<%= root_path %>">Assignee Lookup</a>: <%= @Title %>
+	<menu>
+		<ul>
+			<li><a href="/search">Search</a></li>
+			<li><a href="/assignees">Edit Assignees</a></li>
+		</ul>
+	</menu>
+</header>
 <% flash.each do |name, message| %>
 	<div id="flash_<%= name %>">
 		<%= message %>

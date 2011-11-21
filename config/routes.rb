@@ -1,28 +1,14 @@
 Assignees::Application.routes.draw do
 
-  get "tasks/show"
-
-  get "tasks/index"
-
-  get "tasks/create"
-
-  get "tasks/edit"
-
-  get "tasks/update"
-
-  get "tasks/destroy"
-
-  get "tasks/search"
-
 get "assignees/index"
 get "assignees/search"
 
-root :to => 'Assignees#index'
+root :to => 'Assignees#search'
 
 match 'search' => 'Assignees#search'
 
 resources :assignees
-resources :tasks
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

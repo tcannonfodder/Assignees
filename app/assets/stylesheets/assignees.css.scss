@@ -3,11 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $orange : #f66630;
+$edit : #522D80;
 
+h3{
+	font-size: 20px;
+	color: #f66630;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
 
 
 form{
-	margin-left: 20px;
+	margin-left: 40px;
 	padding: 0px;
 }
 
@@ -21,8 +29,14 @@ form{
 		margin-top: 10px;
 	}
 
+
+form div.tasks div.fields{
+	margin-bottom:10px;
+}
+
+
 .assignees{
-	margin-left: 20px;
+	margin-left: 40px;
 }
 	.assignee_name {
 		font-size: 20px;
@@ -45,6 +59,9 @@ form{
 			border-right: 1px dotted black;
 			padding-right: 5px;
 		}
+			.assignees dt menu li a.edit{
+				color: $edit;
+			}
 
 			.assignees dt menu li a.delete{
 				color: darken(red, 20%);
@@ -57,11 +74,4 @@ form{
 
 	.assignees dd{
 		margin-top: 5px;
-	}
-
-	.assignees dd h2{
-		font-size: 20px;
-		margin-top: 10px;
-		margin-bottom: 0px;
-		margin-left: 0px;
 	}

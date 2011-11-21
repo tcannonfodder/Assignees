@@ -7,6 +7,7 @@ class AssigneesController < ApplicationController
 	def index
 		@Title = "Assignees List"
 		@assignees = Assignee.all
+
 		@assignee = Assignee.new
 		3.times{
 			@assignee.tasks.build
@@ -47,6 +48,7 @@ class AssigneesController < ApplicationController
 	end
 
 	def search
+		@Title = "Search"
 		@assignees = Assignee.search(params[:search])
 	end
 end

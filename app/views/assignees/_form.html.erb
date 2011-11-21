@@ -3,8 +3,8 @@
 	<%= f.text_field :assignee , :size => 40 %><br/>
 	<%= f.label :description %>
 	<%= f.text_area :description,  :cols =>40, :rows => 3 %> <br/>
-	<div class = "Tasks">
-		<h2>Tasks</h2>
+	<div class = "tasks">
+		<h3>Tasks</h3>
 		<%= f.fields_for :tasks do |builder| %>
 			<%= render 'task_fields', :f => builder %>
 		<% end %>

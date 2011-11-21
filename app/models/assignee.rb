@@ -19,7 +19,7 @@ class Assignee < ActiveRecord::Base
 	  		tasksSearch = Task.search(search)
 	  		#assigneesTagged = tagged_with(search.split(','), :any => true)
 
-	  		results = assigneesScoped + tasksSearch #+ assigneesTagged
+	  		results = tasksSearch + assigneesScoped #+ assigneesTagged
 
 	  		if results.size > 0 #If we returned some results from the search, then set those as the current result and return them
 	  			return results.uniq

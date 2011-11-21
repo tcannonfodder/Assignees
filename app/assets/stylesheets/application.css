@@ -12,30 +12,79 @@ body{
 	margin: 0px;
 }
 
-h1{
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a.remove{
+	color: #990000;
+}
+
+a.add{
+	color: #465a13;
+}
+
+header{
 	background: #f66630;
 	color: white;
 	margin: 0px;
 	padding: 5px;
-
+	padding-top: 10px;
+	font-size: 36px;
+	font-weight: bold;
 }
+
+	header a{
+		color: #522D80;
+		text-decoration: none;
+	}
+
+	header menu{
+		display: inline;
+		margin: 0px;
+		padding:0px;
+	}
+	header menu ul{
+		font-size: 25px;
+		margin:0px;
+		list-style:none;
+		display: inline;
+	}
+
+		header menu ul li{
+			display:inline;
+			border-right: 1px dotted white;
+			margin:0px;
+			padding-right: 5px;
+			padding-left: 5px;
+		}
+
+		header menu ul li:last-child{
+			display:inline;
+			border-right: none;
+		}
 
 h2{
 	color: #f66630;
 	margin-left: 10px;
+	margin-bottom:0px;
 }
 
 #flash_notice{
-	background: green;
-	border: 1px solid green;
+	background: #465a13;
+	border: 1px solid #465a13;
 	text-align: center;
 	padding: 5px;
 	color: white;
 }
 
 #flash_error{
-	background: red;
-	border: 1px solid red;
+	background: #990000;
+	border: 1px solid #990000;
 	text-align: center;
 	padding: 5px;
 	color: white;
