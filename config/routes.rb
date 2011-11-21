@@ -6,6 +6,9 @@ get "assignees/search"
 root :to => 'Assignees#search'
 
 match 'search' => 'Assignees#search'
+match 'add' => 'Assignees#index'
+match 'edit/:id' => 'Assignees#edit'
+#match 'delete/:id' => 'Assignees#delete' #INITIALLY DISABLED TO BE SAFE
 
 resources :assignees
 
