@@ -18,8 +18,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'scoped_search' #For Searching
-gem 'kaminari' #For Pagination
+gem 'scoped_search' # For Searching
+gem 'kaminari' # For Pagination
 
 group :test, :development do
 	gem 'turn', '<0.8.3'
