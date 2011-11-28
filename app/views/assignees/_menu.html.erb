@@ -1,5 +1,5 @@
 <menu class='assignee'>
 	<li class='link'><a class = 'link' href='<%= assignee_path(f)%>'>Permalink</a></li>
 	<li class='edit'><a class = 'edit' href='<%= edit_assignee_path(f) %>'>Edit</a></li>
-	<li class='delete'><%= link_to 'Delete', f, :method=>'delete', :class=>'delete'%></li>
+	<li class='delete'><%= link_to 'Delete', f, :method=>'delete', :class=>'delete', :confirm=>'Delete the Assignee? THIS CANNOT BE UNDONE!'%></li>
 </menu>

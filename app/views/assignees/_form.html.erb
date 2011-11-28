@@ -11,4 +11,7 @@
 		<%= link_to_add_fields "Add Task", f, :tasks %>
 	</div>
 	<%= f.submit %>
+	<% if @assignee.id != nil%>
+		<%= link_to 'Cancel Changes', :back, :class=>'cancelChanges', :confirm => 'Cancel Changes to the current record?' %>
+	<% end %>
 <% end %>
