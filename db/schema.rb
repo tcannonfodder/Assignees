@@ -11,11 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118211820) do
+ActiveRecord::Schema.define(:version => 20111128211400) do
 
   create_table "assignees", :force => true do |t|
     t.string   "assignee"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assignees_contacts", :id => false, :force => true do |t|
+    t.integer "assignee_id"
+    t.integer "contact_id"
+  end
+
+  add_index "assignees_contacts", ["assignee_id", "contact_id"], :name => "index_assignees_contacts_on_assignee_id_and_contact_id"
+  add_index "assignees_contacts", ["contact_id", "assignee_id"], :name => "index_assignees_contacts_on_contact_id_and_assignee_id"
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
