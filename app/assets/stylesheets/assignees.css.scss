@@ -42,10 +42,23 @@ form{
 	}
 
 
-form div.tasks div.fields{
+form div.fields{
 	margin-left: 20px;
 	margin-bottom:10px;
 }
+
+	form div.contacts div.fields label{
+		display: inline;
+
+	}
+
+	form div.contacts div.fields label:after{
+		content: ':';
+	}
+
+	form div.contacts div.fields input{
+		margin-right: 10px;
+	}
 
 
 menu.assignee {

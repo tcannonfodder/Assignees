@@ -8,6 +8,9 @@
 			<% if assignee.tasks.size != 0 %>
 				<%= render 'tasks_render', :f=>assignee %>
 			<% end %>
+			<% if assignee.contacts.size != 0 %>
+				<%= render 'contacts_render', :f=>assignee %>
+			<% end %>
 			</dd>
 	<% end %>
 	</dl>
