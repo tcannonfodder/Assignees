@@ -1,8 +1,8 @@
 class Contact < ActiveRecord::Base
-	has_and_belongs_to_many :assignees
+	belongs_to :assignee
 
 	validates :name, presence: true
-	#validates :email, :email => true
+	validates :email, :email => true
 
 	# Model Definiton for the scoped search Gem
 	scoped_search :on => [:name, :email, :phone]
@@ -10,17 +10,13 @@ class Contact < ActiveRecord::Base
 	# Definition of the search method
 
 	def self.search(search)
+		#Returns all of the Assignees found by the scoped search
 		results = search_for(search)
-		contacts = Array.new
-		results.each{ #Since the results is an array of contacts, we need to loop through each contact
+		assignees= Array.new
+		results.each{
 			|x|
-			x.assignees.each{ #and loop through each assignee tied to a specific contact
-				|y|
-				contacts.push(y)
-			}
-			
+			assignees.push(x.assignee)
 		}
-
-		return contacts
+		return assignees
 	end
 end

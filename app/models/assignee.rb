@@ -5,9 +5,9 @@ class Assignee < ActiveRecord::Base
 	# Model Definiton for The Tasks (has many Tasks)
 	has_many :tasks, :dependent => :destroy
 
-	# Model Definition for Contacts (has and belongs to many contacts)
+	# Model Definition for Contacts (has many contacts)
+	has_many :contacts, :dependent => :destroy
 
-	has_and_belongs_to_many :contacts
 
 	# Allow us to create the subforms in the Assignees page
 	accepts_nested_attributes_for :tasks, :reject_if => lambda { |a| a[:task].blank?}, :allow_destroy => true

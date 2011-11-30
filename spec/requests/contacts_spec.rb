@@ -18,7 +18,7 @@ describe "Contacts" do
 		@contact.name = "John Smith"
 		@contact.email = "jsmith@google.com"
 		@contact.phone = "0118 999 881 999 119 7253"
-		@contact.assignees << @assignee
+		@contact.assignee = @assignee
 		@contact.save()
 	end
 
