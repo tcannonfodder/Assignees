@@ -68,6 +68,9 @@ describe "Assignees" do
 	    	page.should have_content 'A Very Simple Description' 
 	    	page.should have_content 'Sample Task'
 	    end
+
+
+
 	end
 
 	describe "PUT /assignees" do

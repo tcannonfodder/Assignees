@@ -3,7 +3,14 @@ class AssigneesController < ApplicationController
 	def show
 		begin
 			@Title = "Assignee Overview"
-			@assignee = Assignee.find params[:id] 
+			@assignee = Assignee.find params[:id]
+
+			respond_to do |format|
+				format.xml {render :xml=>@assignee.to_xml(:except=>[:created_at,:updated_at, :assignee_id], :include => [:tasks, :contacts])}
+				format.json {render :json=>@assignee.to_json(:except=>[:created_at,:updated_at, :assignee_id], :include => [:tasks, :contacts])}
+				format.html {render :html=>@assignee }
+			end
+
 		rescue
 			redirect_to :root
 		end
@@ -18,6 +25,13 @@ class AssigneesController < ApplicationController
 		3.times{
 			@assignee.tasks.build
 		}
+
+		respond_to do |format|
+			format.xml {render :xml=>@assignees.to_xml(:except=>[:created_at,:updated_at, :assignee_id], :include => [:tasks, :contacts])}
+			format.json {render :json=>@assignees.to_json(:except=>[:created_at,:updated_at, :assignee_id], :include => [:tasks, :contacts])}
+			format.html {render :html=>@assignees }
+		end
+
 	end
 
 	def create
@@ -67,5 +81,10 @@ class AssigneesController < ApplicationController
 	def search
 		@Title = "Search"
 		@assignees = Assignee.search(params[:search])
+		respond_to do |format|
+			format.xml {render :xml=>@assignees.to_xml(:except=>[:created_at,:updated_at, :assignee_id], :include => [:tasks, :contacts])}
+			format.json {render :json=>@assignees.to_json(:except=>[:created_at,:updated_at, :assignee_id], :include => [:tasks, :contacts])}
+			format.html {render :html=>@assignees }
+		end
 	end
 end
