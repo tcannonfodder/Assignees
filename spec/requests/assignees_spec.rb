@@ -20,6 +20,16 @@ describe "Assignees" do
 	      page.should have_content "Test Assignee"
 	    end
 
+	   	it "displays some assignees via JSON" do
+	      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+	      get assignees_path, :format => "json"
+	      response.should be_success
+	      json = JSON.parse(response.body)
+	      json[0]["assignee"].should == "Test Assignee"
+	      json[0]["description"].should == "A Very Simple Description"
+	      json[0]["tasks"][0]["task"].should == "Sample Task"
+	    end
+
 	    it "creates a new assignee" do
 	    	visit assignees_path
 	    	fill_in 'Assignee', :with => 'Another Assignee'
@@ -69,7 +79,27 @@ describe "Assignees" do
 	    	page.should have_content 'Sample Task'
 	    end
 
+	    #JSON TESTS
 
+	   	it "searches for An Assignee based on Title and returns JSON" do
+	      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+	      get assignees_path + "?search=" + "Test+Assignee" , :format => "json"
+	      response.should be_success
+	      json = JSON.parse(response.body)
+	      json[0]["assignee"].should == "Test Assignee"
+	      json[0]["description"].should == "A Very Simple Description"
+	      json[0]["tasks"][0]["task"].should == "Sample Task"
+	    end
+
+	    it "searches for An Assignee based on Description and returns JSON" do
+	      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+	      get assignees_path + "?search=" + "A+Very+Simple" , :format => "json"
+	      response.should be_success
+	      json = JSON.parse(response.body)
+	      json[0]["assignee"].should == "Test Assignee"
+	      json[0]["description"].should == "A Very Simple Description"
+	      json[0]["tasks"][0]["task"].should == "Sample Task"
+	    end
 
 	end
 

@@ -30,6 +30,19 @@ describe "Contacts" do
       #save_and_open_page
     end
 
+    it "displays some Contacts via returns JSON" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get assignees_path , :format => "json"
+      response.should be_success
+      json = JSON.parse(response.body)
+      json[0]["assignee"].should == "Test Assignee Tasks"
+      json[0]["description"].should == "A Very Simple Description for Assignee Tasks"
+      json[0]["tasks"][0]["task"].should == "Sample Task"
+      json[0]["contacts"][0]["name"].should == "John Smith"
+      json[0]["contacts"][0]["email"].should == "jsmith@google.com"
+      json[0]["contacts"][0]["phone"].should == "0118 999 881 999 119 7253"
+    end
+
     it "searches for an Assignee based on a Contact Name" do
     	visit assignees_search_path
 
@@ -97,6 +110,45 @@ describe "Contacts" do
     	page.should have_content 'John Smith'
     end
 
+    #JSON Tests
+	it "searches for An Assignee based on Contact Name and returns JSON" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get assignees_path + "?search=" + "John+Smith" , :format => "json"
+      response.should be_success
+      json = JSON.parse(response.body)
+      json[0]["assignee"].should == "Test Assignee Tasks"
+      json[0]["description"].should == "A Very Simple Description for Assignee Tasks"
+      json[0]["tasks"][0]["task"].should == "Sample Task"
+      json[0]["contacts"][0]["name"].should == "John Smith"
+      json[0]["contacts"][0]["email"].should == "jsmith@google.com"
+      json[0]["contacts"][0]["phone"].should == "0118 999 881 999 119 7253"
+    end
+
+    it "searches for An Assignee based on Contact Phone and returns JSON" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get assignees_path + "?search=" + "0118+999+881+999+119+7253" , :format => "json"
+      response.should be_success
+      json = JSON.parse(response.body)
+      json[0]["assignee"].should == "Test Assignee Tasks"
+      json[0]["description"].should == "A Very Simple Description for Assignee Tasks"
+      json[0]["tasks"][0]["task"].should == "Sample Task"
+      json[0]["contacts"][0]["name"].should == "John Smith"
+      json[0]["contacts"][0]["email"].should == "jsmith@google.com"
+      json[0]["contacts"][0]["phone"].should == "0118 999 881 999 119 7253"
+    end
+
+    it "searches for An Assignee based on Contact Email and returns JSON" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get assignees_path + "?search=" + "jsmith@google.com" , :format => "json"
+      response.should be_success
+      json = JSON.parse(response.body)
+      json[0]["assignee"].should == "Test Assignee Tasks"
+      json[0]["description"].should == "A Very Simple Description for Assignee Tasks"
+      json[0]["tasks"][0]["task"].should == "Sample Task"
+      json[0]["contacts"][0]["name"].should == "John Smith"
+      json[0]["contacts"][0]["email"].should == "jsmith@google.com"
+      json[0]["contacts"][0]["phone"].should == "0118 999 881 999 119 7253"
+    end
 
   end
 

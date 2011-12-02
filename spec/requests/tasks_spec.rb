@@ -24,7 +24,17 @@ describe "Tasks" do
       #save_and_open_page
     end
 
-    it "searches for an Assignee based on a Tag" do
+    it "displays some Tasks via JSON" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get assignees_path, :format => "json"
+      response.should be_success
+      json = JSON.parse(response.body)
+      json[0]["assignee"].should == "Test Assignee Tasks"
+      json[0]["description"].should == "A Very Simple Description for Assignee Tasks"
+      json[0]["tasks"][0]["task"].should == "Sample Task"
+    end
+
+    it "searches for an Assignee based on a Task" do
     	visit assignees_search_path
 
     	fill_in 'search', :with => 'Sample Task'
@@ -45,6 +55,16 @@ describe "Tasks" do
     	page.should have_content 'Sample Task'
     end
   end
+
+  	it "searches for An Assignee based on a Task and returns JSON" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get assignees_path + "?search=" + "Sample+Task" , :format => "json"
+      response.should be_success
+      json = JSON.parse(response.body)
+      json[0]["assignee"].should == "Test Assignee Tasks"
+      json[0]["description"].should == "A Very Simple Description for Assignee Tasks"
+      json[0]["tasks"][0]["task"].should == "Sample Task"
+    end
 
   describe "PUT /tasks" do
 	it "edits an assignee's task" do
