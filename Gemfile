@@ -28,6 +28,7 @@ group :test, :development do
 	gem 'guard-rspec'
 	gem 'growl_notify'
 	gem 'launchy'
+	gem 'capistrano' #You don't want Capistrano on the production side (I think)
 end
 
 # To use ActiveModel has_secure_password
