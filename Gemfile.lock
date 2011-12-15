@@ -77,6 +77,7 @@ GEM
       rails (>= 3.0.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
+    libv8 (3.3.10.4)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -152,6 +153,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.4)
+    therubyracer (0.9.9)
+      libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -173,6 +176,7 @@ DEPENDENCIES
   capistrano
   capybara
   coffee-rails (~> 3.1.1)
+  execjs
   growl_notify
   guard-rspec
   jquery-rails
@@ -183,5 +187,6 @@ DEPENDENCIES
   sass-rails (~> 3.1.4)
   scoped_search
   sqlite3
+  therubyracer
   turn (< 0.8.3)
   uglifier (>= 1.0.3)
