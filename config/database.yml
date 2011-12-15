@@ -25,3 +25,5 @@ production:
   database: assigneeSearch_production
   pool: 5
   timeout: 5000
+  username: assigneeSearch
+  password: marktickets
