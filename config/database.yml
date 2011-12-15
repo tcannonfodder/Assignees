@@ -22,7 +22,7 @@ production:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: assigneeSearch_production
+  database: assigneeSearch
   pool: 5
   timeout: 5000
   username: assigneeSearch
