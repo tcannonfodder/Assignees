@@ -34,7 +34,7 @@ group :test, :development do
 end
 
 group :production do
-	gem 'pg' #use postgres for database installation
+	gem 'pg' #use postgres for database installation as the database
 end
 
 # To use ActiveModel has_secure_password
