@@ -5,7 +5,7 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'execjs' # For JS Compilation
 gem 'therubyracer' # JS Interpreter
 
@@ -23,6 +23,7 @@ gem 'scoped_search' # For Searching
 gem 'kaminari' # For Pagination
 
 group :test, :development do
+	gem 'sqlite3'
 	gem 'turn', '<0.8.3'
 	gem 'rspec-rails'
 	gem 'capybara'
@@ -30,6 +31,10 @@ group :test, :development do
 	gem 'growl_notify'
 	gem 'launchy'
 	gem 'capistrano' #You don't want Capistrano on the production side (I think)
+end
+
+group :production do
+	gem 'pg' #use postgres for database installation
 end
 
 # To use ActiveModel has_secure_password
